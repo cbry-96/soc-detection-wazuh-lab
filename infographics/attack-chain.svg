@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 540" font-family="Segoe UI, Arial, sans-serif">
+  <!-- Fondo tema oscuro GitHub -->
+  <rect width="900" height="540" fill="#0d1117"/>
+  <text x="30" y="46" fill="#e6edf3" font-size="24" font-weight="700">SOC Detection &amp; Response — Wazuh 4.14</text>
+  <text x="30" y="72" fill="#8b949e" font-size="14">Cadena de ataque, detección y respuesta automática · red interna aislada 10.10.10.0/24</text>
+  <line x1="30" y1="88" x2="870" y2="88" stroke="#21262d" stroke-width="1"/>
+
+  <!-- Nodos de topología -->
+  <!-- Kali -->
+  <rect x="40" y="120" width="190" height="80" rx="10" fill="#161b22" stroke="#f85149" stroke-width="1.5"/>
+  <text x="135" y="150" fill="#f85149" font-size="15" font-weight="700" text-anchor="middle">KALI — Atacante</text>
+  <text x="135" y="172" fill="#8b949e" font-size="12" text-anchor="middle">10.10.10.55</text>
+  <text x="135" y="189" fill="#8b949e" font-size="12" text-anchor="middle">Hydra (fuerza bruta SSH)</text>
+
+  <!-- Debian -->
+  <rect x="355" y="120" width="190" height="80" rx="10" fill="#161b22" stroke="#d29922" stroke-width="1.5"/>
+  <text x="450" y="150" fill="#d29922" font-size="15" font-weight="700" text-anchor="middle">DEBIAN — Víctima</text>
+  <text x="450" y="172" fill="#8b949e" font-size="12" text-anchor="middle">10.10.10.20 · agente 001</text>
+  <text x="450" y="189" fill="#8b949e" font-size="12" text-anchor="middle">SSH + WordPress + FIM</text>
+
+  <!-- Wazuh -->
+  <rect x="670" y="120" width="190" height="80" rx="10" fill="#161b22" stroke="#2f81f7" stroke-width="1.5"/>
+  <text x="765" y="150" fill="#2f81f7" font-size="15" font-weight="700" text-anchor="middle">WAZUH — SIEM</text>
+  <text x="765" y="172" fill="#8b949e" font-size="12" text-anchor="middle">10.10.10.10</text>
+  <text x="765" y="189" fill="#8b949e" font-size="12" text-anchor="middle">Manager+Indexer+Dashboard</text>
+
+  <!-- Flechas -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <line x1="230" y1="160" x2="350" y2="160" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="290" y="152" fill="#8b949e" font-size="11" text-anchor="middle">ataque SSH</text>
+  <line x1="545" y1="160" x2="665" y2="160" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="605" y="152" fill="#8b949e" font-size="11" text-anchor="middle">logs/agente</text>
+
+  <!-- Línea de detección y respuesta -->
+  <text x="30" y="250" fill="#e6edf3" font-size="16" font-weight="700">Detección → Respuesta automática</text>
+
+  <!-- Paso 1 -->
+  <rect x="40" y="268" width="250" height="92" rx="10" fill="#161b22" stroke="#30363d"/>
+  <text x="56" y="294" fill="#e6edf3" font-size="13" font-weight="700">1 · Fuerza bruta detectada</text>
+  <text x="56" y="316" fill="#8b949e" font-size="12">Regla 5760 (sshd) × N → correlación</text>
+  <text x="56" y="334" fill="#f85149" font-size="13" font-weight="700">Regla 5763 · nivel 10</text>
+  <text x="56" y="352" fill="#8b949e" font-size="11">MITRE T1110.001 — Password Guessing</text>
+
+  <!-- Paso 2 -->
+  <rect x="325" y="268" width="250" height="92" rx="10" fill="#161b22" stroke="#30363d"/>
+  <text x="341" y="294" fill="#e6edf3" font-size="13" font-weight="700">2 · Respuesta activa</text>
+  <text x="341" y="316" fill="#3fb950" font-size="13" font-weight="700">firewall-drop → Regla 651</text>
+  <text x="341" y="334" fill="#8b949e" font-size="12">Bloqueo iptables de la IP · 180 s</text>
+  <text x="341" y="352" fill="#8b949e" font-size="11">Latencia detección→respuesta: 0,14 s</text>
+
+  <!-- Paso 3 -->
+  <rect x="610" y="268" width="250" height="92" rx="10" fill="#161b22" stroke="#30363d"/>
+  <text x="626" y="294" fill="#e6edf3" font-size="13" font-weight="700">3 · Liberación automática</text>
+  <text x="626" y="316" fill="#8b949e" font-size="12">Comando delete a los 180 s</text>
+  <text x="626" y="334" fill="#8b949e" font-size="12">Registro en active-responses.log</text>
+  <text x="626" y="352" fill="#3fb950" font-size="11">Ciclo contenido sin intervención</text>
+
+  <line x1="290" y1="314" x2="323" y2="314" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="575" y1="314" x2="608" y2="314" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Persistencia / FIM -->
+  <text x="30" y="408" fill="#e6edf3" font-size="16" font-weight="700">Persistencia detectada por FIM (tiempo real)</text>
+  <rect x="40" y="424" width="820" height="72" rx="10" fill="#161b22" stroke="#30363d"/>
+  <text x="56" y="450" fill="#8b949e" font-size="12.5">· Alta de cuenta local  /etc/passwd (+ /etc/passwd-)  → regla 550 · <tspan fill="#d29922">T1136.001</tspan></text>
+  <text x="56" y="470" fill="#8b949e" font-size="12.5">· Manipulación de SSH  /etc/ssh/sshd_config  → regla 550 · <tspan fill="#d29922">T1098</tspan></text>
+  <text x="56" y="490" fill="#8b949e" font-size="12.5">· Persistencia cron  /etc/cron.d/soc_test_cron  → regla 554 · <tspan fill="#d29922">T1053.003</tspan></text>
+
+  <text x="870" y="524" fill="#484f58" font-size="11" text-anchor="end">cbry-96 · REDNIX — entorno virtualizado aislado, uso educativo</text>
+</svg>

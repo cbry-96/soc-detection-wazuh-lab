@@ -56,6 +56,12 @@ salida a internet.
        atacante                  endpoint + agente Wazuh                   SIEM + dashboard
 ```
 
+### Resumen visual
+
+![Cadena de ataque, detección y respuesta](infographics/attack-chain.svg)
+
+*Diagrama de la cadena completa: ataque → detección (reglas Wazuh) → respuesta activa → persistencia por FIM, con el mapeo MITRE ATT&CK.*
+
 ## 3. Fases
 
 El procedimiento operativo completo, con todos los comandos y verificaciones, está en

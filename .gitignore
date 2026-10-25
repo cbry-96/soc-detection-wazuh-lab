@@ -1,0 +1,25 @@
+# Sistema
+.DS_Store
+Thumbs.db
+*~
+
+# Temporales / editores
+*.swp
+*.tmp
+*.bak
+.vscode/
+.idea/
+
+# Credenciales y secretos — NUNCA subir
+*.key
+*.pem
+*.crt
+*.p12
+secrets*
+*wazuh-passwords*
+wazuh-install-files.tar
+
+# Capturas en bruto antes de revisar (renombrar antes de versionar)
+evidence/**/_raw/
+*.mp4
+*.mkv
